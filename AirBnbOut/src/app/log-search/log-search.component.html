@@ -1,0 +1,64 @@
+<div class="flex flex-col justify-center items-center">
+    
+   
+
+       <form class="flex justify-between bg-neutral-100 rounded-full drop-shadow-xl mb-2">
+            <!-- Destination -->
+           <div  [ngClass]="zoneRechereche ==='Destination'? 'bg-white rounded-full' : 'bg-neutral-100'" class="flex flex-col hover:bg-white hover:border-none  border-r-2 pr-10 pl-10 pt-2 pb-3 rounded-l-full bg-neutral-100">
+             <label for="Destination" class="text-xs">Destination</label>
+             <input type="text" (focus)="onFocus('Destination')"  [ngClass]="zoneRechereche ==='Destination'? 'bg-white' : 'bg-neutral-100'" class="text-xs focus:outline-none border-neutral-100  text-red-black " id="Destination" name="Destination" placeholder="Rechercher une destination">
+           </div>
+
+
+                 <!-- Arrivée -->
+           <div [ngClass]="zoneRechereche ==='Arrive'? 'bg-white rounded-full' : 'bg-neutral-100'" class="flex flex-col border-r-2 hover:bg-white hover:border-none  pr-10 pl-5 pt-2 bg-neutral-100" (click)="onFocus('Arrive')">
+                <label class="text-xs"  for="Arrivée" >Arrivée</label>
+                <p class="text-xs">Quand?</p>
+           </div>
+
+
+                    <!-- Départ -->
+              <div  [ngClass]="zoneRechereche ==='Depart'? 'bg-white rounded-full' : 'bg-neutral-100'" class="flex flex-col  border-r-2 pr-10 hover:bg-white hover:border-none  pl-5 pt-2 bg-neutral-100 " (click)="onFocus('Depart')">
+                 <label  class="text-xs" for="Départ">Départ</label>
+                 <p class="text-xs">Quand?</p>
+                </div>
+
+                    <!-- Voyageurs -->
+                <div [ngClass]="zoneRechereche ==='Voyageur'? 'bg-white rounded-full' : 'bg-neutral-100'" class="flex  pl-5 pt-2 pl-3 hover:bg-white hover:border-none  rounded-r-full pr-5 " (click)="onFocus('Voyageur')">
+                    
+                    <div class="flex flex-col mr-2">
+                        <label  class="text-xs" for="Départ">Voyageurs</label>
+                        <p class="text-xs">Ajouter des Voyageurs</p>
+                    </div>
+                   
+                    <!-- Affichage sans focus sur un element"-->
+
+                        <div class="flex bg-red-500 rounded-full w-12 h-12 -mt-1"  *ngIf="!isFocused" >
+                        <img src="assets/loupe.png" alt="Logo"  class="w-5 h-5 mt-3 ml-3"/>
+   
+
+    
+                        </div>
+                         <!-- Afficher au moment du focus-->
+                 <div class="flex bg-red-500 rounded-full w-30 h-10 pl-2 pr-2" *ngIf="isFocused">
+                    <img src="assets/loupe.png" alt="Logo"  class="w-4 h-4 mt-3 mr-1"/>
+                   
+                <button class="text-white text-sm ">Rechercher</button> 
+                    
+                 </div> 
+
+                   </div> 
+              
+
+
+
+           
+              
+       </form>
+
+
+   <app-calender></app-calender>
+
+
+</div>
+
